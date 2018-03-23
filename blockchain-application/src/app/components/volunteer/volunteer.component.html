@@ -1,12 +1,13 @@
 <div class="container">
   <h1 class="title">
-    {{ 'PAGES.VOLUNTEER.TITLE' | translate }}
+    {{volunteerId}}
   </h1>
+  <mat-divider></mat-divider>
 </div>
 
 <div class="container">
   <app-task-list [titleKey]="'PAGES.VOLUNTEER.TASK.LIST.CREATED'" [dataSource]="createdDataSource"
-                 [displayedColumns]="['taskId', 'description', 'taskStatus', 'creator']"
+                 [displayedColumns]="['taskId', 'description', 'taskStatus', 'creator', 'reserve']"
                  (onReserve)="reserve($event)"></app-task-list>
   <mat-divider></mat-divider>
   <app-task-list [titleKey]="'PAGES.VOLUNTEER.TASK.LIST.RESERVED'" [dataSource]="reservedDataSource"></app-task-list>

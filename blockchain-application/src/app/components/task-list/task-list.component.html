@@ -23,7 +23,7 @@
   </ng-container>
 
   <ng-container matColumnDef="reserve">
-    <mat-header-cell *matHeaderCellDef>{{'TASK.ACTION' | translate}}</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
     <mat-cell *matCellDef="let task">
       <button mat-raised-button color="primary" (click)="reserve(task.taskId)">{{'TASK.ACTION.RESERVE' | translate}}
       </button>

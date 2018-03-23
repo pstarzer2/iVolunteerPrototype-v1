@@ -11,7 +11,7 @@ import {AssignTaskService} from '../../providers/assign-task.service';
 export class OrganisationComponent implements AfterViewInit {
 
   @Input('personId')
-  private organisationId: string | null;
+  organisationId: string | null;
 
   createdDataSource = new MatTableDataSource<Task>();
   reservedDataSource = new MatTableDataSource<Task>();

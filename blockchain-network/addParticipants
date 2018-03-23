@@ -1,0 +1,16 @@
+#!/bin/bash
+# script for adding participants to blockchain-network and issuing business network cards
+
+echo "addParticipants STARTED"
+composer participant add --card admin@blockchain-network --data '{"$class":"at.jku.cis.Volunteer","firstName":"Philipp","lastName":"Starzer","email":"volunteer1@mail.com"}'
+composer identity issue --card admin@blockchain-network --file volunteer1.card --newUserId volunteer1 --participantId 'resource:at.jku.cis.Volunteer#volunteer1@mail.com'
+
+composer participant add --card admin@blockchain-network --data '{"$class":"at.jku.cis.Volunteer","firstName":"Max","lastName":"Mustermann","email":"volunteer2@mail.com"}'
+composer identity issue --card admin@blockchain-network --file volunteer2.card --newUserId volunteer2 --participantId 'resource:at.jku.cis.Volunteer#volunteer2@mail.com'
+
+composer participant add --card admin@blockchain-network --data '{"$class":"at.jku.cis.Organisation","orgName":"org1","email":"organisation1@mail.com"}'
+composer identity issue --card admin@blockchain-network --file organisation1.card --newUserId organisation1 --participantId 'resource:at.jku.cis.Organisation#organisation1@mail.com'
+
+echo "addParticipants FINISHED"
+
+

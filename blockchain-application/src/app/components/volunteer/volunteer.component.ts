@@ -14,7 +14,7 @@ import {FinishTaskService} from '../../providers/finish-task.service';
 export class VolunteerComponent implements AfterViewInit {
 
   @Input('personId')
-  private volunteerId: string | null;
+  volunteerId: string | null;
 
   createdDataSource = new MatTableDataSource<Task>();
   reservedDataSource = new MatTableDataSource<Task>();
