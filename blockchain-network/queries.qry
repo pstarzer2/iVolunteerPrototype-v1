@@ -5,11 +5,11 @@ query findCreatedTasks {
           WHERE (taskStatus == "CREATED")
 }
 
-query findTasksByOrganisation {
-  description: "Select all tasks which _$organisation has reserved for"
+query findTasksByOrganization {
+  description: "Select all tasks which _$organization has reserved for"
   statement:
       SELECT at.jku.cis.Task
-         WHERE (creator == _$organisation)
+         WHERE (creator == _$organization)
 }
 
 query findReservedTasksByVolunteer {

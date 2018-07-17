@@ -34,17 +34,17 @@ rule AllowAllPartisipantsRead{
     action: ALLOW
 }
 
-rule AllowOrganisationCreateTask1 {
-    description: "Allow all Organisations to create a new task"
-    participant: "at.jku.cis.Organisation"
+rule AllowOrganizationCreateTask1 {
+    description: "Allow all Organizations to create a new task"
+    participant: "at.jku.cis.Organization"
     operation: CREATE
     resource: "at.jku.cis.createTask"
     action: ALLOW
 }
 
-rule AllowOrganisationCreateTask2 {
-    description: "Allow all Organisation access to Task, but only via createTask transaction"
-    participant: "at.jku.cis.Organisation"
+rule AllowOrganizationCreateTask2 {
+    description: "Allow all Organization access to Task, but only via createTask transaction"
+    participant: "at.jku.cis.Organization"
     operation: ALL
     resource: "at.jku.cis.Task"
     transaction: "at.jku.cis.createTask"
@@ -68,17 +68,17 @@ rule AllowVolunteerReserveTask2 {
     action: ALLOW
 }
 
-rule AllowOrganisationAssignTask1 {
-    description: "Allow all Organisations to assign volunteers to a task"
-    participant: "at.jku.cis.Organisation"
+rule AllowOrganizationAssignTask1 {
+    description: "Allow all Organizations to assign volunteers to a task"
+    participant: "at.jku.cis.Organization"
     operation: CREATE
     resource: "at.jku.cis.assignTask"
     action: ALLOW
 }
 
-rule AllowOrganisationAssignTask2 {
-    description: "Allow all Organisations accessto to Task, but only via assingTask transaction"
-    participant: "at.jku.cis.Organisation"
+rule AllowOrganizationAssignTask2 {
+    description: "Allow all Organizations accessto to Task, but only via assingTask transaction"
+    participant: "at.jku.cis.Organization"
     operation: ALL
     resource: "at.jku.cis.Task"
     transaction: "at.jku.cis.assignTask"

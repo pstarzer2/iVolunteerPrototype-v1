@@ -13,7 +13,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import {AppComponent} from './components/app/app.component';
-import {OrganisationComponent} from './components/organisation/organisation.component';
+import {OrganizationComponent} from './components/organization/organization.component';
 import {DataService} from './providers/data.service';
 import {TaskService} from './providers/task.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -24,7 +24,7 @@ import {AssignTaskService} from './providers/assign-task.service';
 import {FinishTaskService} from './providers/finish-task.service';
 import {LoginComponent} from './components/login/login.component';
 import {VolunteerService} from './providers/volunteer.service';
-import {OrganisationService} from './providers/organisation.service';
+import {OrganizationService} from './providers/organization.service';
 import {VolunteerComponent} from './components/volunteer/volunteer.component';
 import {TaskListComponent} from './components/task-list/task-list.component';
 import {TaskCreateComponent} from './components/task-create/task-create.component';
@@ -47,7 +47,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     LoginComponent,
     TaskListComponent,
     TaskCreateComponent,
-    OrganisationComponent,
+    OrganizationComponent,
     VolunteerComponent,
     HomeComponent
   ],
@@ -75,7 +75,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AssignTaskService,
     FinishTaskService,
     VolunteerService,
-    OrganisationService,
+    OrganizationService,
 
     CookieService,
     SystemPingService,

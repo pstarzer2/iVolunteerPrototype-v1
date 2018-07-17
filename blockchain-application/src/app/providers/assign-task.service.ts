@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {DataService} from './data.service';
 import {CreateTask} from 'app/model/at.jku.cis';
-import {AssignTask, Organisation, Task} from '../model/at.jku.cis';
+import {AssignTask, Organization, Task} from '../model/at.jku.cis';
 
 @Injectable()
 export class AssignTaskService {

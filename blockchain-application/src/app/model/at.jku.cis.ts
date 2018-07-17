@@ -5,7 +5,7 @@ export abstract class Person extends Participant {
   email: string;
 }
 
-export class Organisation extends Person {
+export class Organization extends Person {
   orgName: string;
 }
 

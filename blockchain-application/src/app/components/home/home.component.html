@@ -2,7 +2,7 @@
 
 <div *ngIf="personType !== undefined && personId !== undefined">
   <app-volunteer *ngIf="personType === 'Volunteer'" [personId]="personId"></app-volunteer>
-  <app-organisation *ngIf="personType === 'Organisation'" [personId]="personId"></app-organisation>
+  <app-organization *ngIf="personType === 'Organization'" [personId]="personId"></app-organization>
 </div>
 
 

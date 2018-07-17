@@ -4,6 +4,7 @@
     "DESCRIPTION": "Description",
     "STATUS": "Status",
     "CREATOR": "Creator",
+    "VOLUNTEER": "Volunteer",
     "ACTION": {
       "RESERVE": "Reserve",
       "ASSIGN": "Assign",
@@ -15,8 +16,8 @@
       "TITLE": "Login",
       "GITHUB": "Login with Github"
     },
-    "ORGANISATION": {
-      "TITLE": "Organisation",
+    "ORGANIZATION": {
+      "TITLE": "Organization",
       "TASK": {
         "LIST": {
           "CREATED": "Available Tasks",
@@ -33,7 +34,7 @@
         "LIST": {
           "CREATED": "Available Tasks",
           "RESERVED": "Reserved Tasks",
-          "ASSIGNED": "Assigned Tasks",
+          "ASSIGNED": "Running Tasks",
           "FINISHED": "Finished Tasks"
         }
       }

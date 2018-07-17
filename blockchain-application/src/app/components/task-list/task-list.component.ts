@@ -15,7 +15,7 @@ export class TaskListComponent {
   dataSource: MatTableDataSource<Task>;
 
   @Input()
-  displayedColumns = ['taskId', 'description', 'taskStatus', 'creator'];
+  displayedColumns = ['taskId', 'description', 'taskStatus', 'creator', 'resVolunteer', 'taskPerformer'];
 
   @Output()
   onReserve = new EventEmitter<string>();

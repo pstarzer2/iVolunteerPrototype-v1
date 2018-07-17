@@ -22,6 +22,16 @@
     <mat-cell *matCellDef="let task"> {{task.creator.split('#')[1]}}</mat-cell>
   </ng-container>
 
+  <ng-container matColumnDef="resVolunteer">
+    <mat-header-cell *matHeaderCellDef>{{'TASK.VOLUNTEER' | translate}}</mat-header-cell>
+    <mat-cell *matCellDef="let task"> {{task.reservedVolunteers.toString().split('#')[1]}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="taskPerformer">
+    <mat-header-cell *matHeaderCellDef>{{'TASK.VOLUNTEER' | translate}}</mat-header-cell>
+    <mat-cell *matCellDef="let task"> {{task.taskPerformer.toString().split('#')[1]}}</mat-cell>
+  </ng-container>
+
   <ng-container matColumnDef="reserve">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>
     <mat-cell *matCellDef="let task">

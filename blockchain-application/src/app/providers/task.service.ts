@@ -23,8 +23,8 @@ export class TaskService {
     return this.dataService.getAll('queries/findCreatedTasks');
   }
 
-  public getAllByOrganisation(organisationId: any): Observable<Task[]> {
-    return this.dataService.getAll('queries/findTasksByOrganisation?organisation=resource:at.jku.cis.Organisation#' + organisationId);
+  public getAllByOrganization(organizationId: any): Observable<Task[]> {
+    return this.dataService.getAll('queries/findTasksByOrganization?organization=resource:at.jku.cis.Organization#' + organizationId);
   }
 
   public getAllReservedByVolunteer(volunteerId: any): Observable<Task[]> {

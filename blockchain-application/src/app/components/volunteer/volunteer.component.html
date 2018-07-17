@@ -7,15 +7,25 @@
 
 <div class="container">
   <app-task-list [titleKey]="'PAGES.VOLUNTEER.TASK.LIST.CREATED'" [dataSource]="createdDataSource"
-                 [displayedColumns]="['taskId', 'description', 'taskStatus', 'creator', 'reserve']"
-                 (onReserve)="reserve($event)"></app-task-list>
+                 [displayedColumns]="['taskId', 'description', 'creator', 'taskStatus', 'reserve']"
+                 (onReserve)="reserve($event)">
+  </app-task-list>
+
   <mat-divider></mat-divider>
-  <app-task-list [titleKey]="'PAGES.VOLUNTEER.TASK.LIST.RESERVED'" [dataSource]="reservedDataSource"></app-task-list>
+
+  <app-task-list [titleKey]="'PAGES.VOLUNTEER.TASK.LIST.RESERVED'" [dataSource]="reservedDataSource"
+                 [displayedColumns]="['taskId', 'description', 'creator', 'taskStatus']">                                                                                                                                                                                                                           ]"
+  </app-task-list>
+
   <mat-divider></mat-divider>
+
   <app-task-list [titleKey]="'PAGES.VOLUNTEER.TASK.LIST.ASSIGNED'" [dataSource]="assignedDataSource"
-                 [displayedColumns]="['taskId', 'description', 'taskStatus', 'creator', 'finish']"
+                 [displayedColumns]="['taskId', 'description', 'creator', 'taskStatus', 'finish']"
                  (onFinish)="finish($event)"></app-task-list>
+
   <mat-divider></mat-divider>
+
   <app-task-list [titleKey]="'PAGES.VOLUNTEER.TASK.LIST.FINISHED'" [dataSource]="finishedDataSource"
-  ></app-task-list>
+                 [displayedColumns]="['taskId', 'description', 'creator', 'taskStatus']">
+  </app-task-list>
 </div>

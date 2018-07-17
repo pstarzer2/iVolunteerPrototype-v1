@@ -1,43 +1,25 @@
 # iVolunteerPrototype
 
-# Starting the Fabric:
-0. cd fabric-tools/
-1. ./downloadFabric.sh
-2. ./startFabric.sh
-3. ./createPeerAdminCard.sh
+# Starting and initializing and deploying the blockchain-network
+1. cd ~/iVolunteerPrototype-v1/blockchain-network
+2. ./init
 
-other commands:
-./stopFabric.sh
-./teardownFabric.sh
-composer card list
-# 
+# Due to a bug change connection profile of admin business network card
+1. cd ~/.composer/cards/admin@blockchain-network
+2. in connection.json change localhost to 172.17.0.1 (docker ip address)
 
-# Deploying the business network
-0. cd iVolunteer/blockchain-network
-1. composer archive create -t dir -n .
-2. composer runtime install --card PeerAdmin@hlfv1 --businessNetworkName blockchain-network
-3. composer network start --card PeerAdmin@hlfv1 --networkAdmin admin --networkAdminEnrollSecret adminpw --archiveFile blockchain-network@0.0.1.bna --file blockchainadmin.card
-4. composer card import --file blockchainadmin.card
-5. composer network ping --card admin@blockchain-network
-6. composer-rest-server -c admin@blockchain-network -n never -w true
-# 
+# Adding demo participants
+1. cd ~/iVolunteerPrototype-v1/blockchain-network
+2. ./addParticipants
 
-# Updating the network
-0. cd iVolunteer/blockchain-network
-1. composer archive create -t dir -n .
-2. composer network update --archiveFile blockchain-network@0.0.1.bna --card admin@blockchain-network
-# 
+# Starting the REST server
+1. cd ~/iVolunteerPrototype-v1/rest-server
+2. docker-compose up -d
+3. in a browser go to localhost:3000
 
-# Creating participant, creating and importing business network cards
-* composer participant add --card admin@blockchain-network --data '{"$class":"at.jku.cis.Organisation","orgName":"org1","email":"org1@mail.com"}'
-* composer identity issue --card admin@blockchain-network --file organisation1.card --newUserId organisation1 --participantId 'resource:at.jku.cis.Organisation#org1@mail.com'
-* composer card import --file organisation1.card
-
-
-# Connecting to couchDB
-1. Open url in browser: http://localhost:5984/_utils/
-
-# Angular setup
-1. npm install -g @angular/cli
-2. npm install electron-packager -g
-3. npm install
+# Starting client application
+1. open project "blockchain-application" in webstorm
+2. right click "package.json -> "npm install"
+3. right click "package.json -> "show npm scripts"
+4. in the new window "start"
+5. in a browser go to localhost:4200
