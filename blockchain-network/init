@@ -5,8 +5,8 @@ echo "blockchain-network init STARTED"
 docker rm -f mongodb
 docker rm -f rest-server
 
-~/fabric-tools/stopFabric.sh
-~/fabric-tools/teardownFabric.sh
+~/fabric-dev-servers/stopFabric.sh
+~/fabric-dev-servers/teardownFabric.sh
 
 rm -rf $HOME/.composer
 
@@ -14,15 +14,29 @@ rm *.card
 rm *.bna
 
 # Starting the Fabric
-~/fabric-tools/downloadFabric.sh
-~/fabric-tools/startFabric.sh
-~/fabric-tools/createPeerAdminCard.sh
+~/fabric-dev-servers/downloadFabric.sh
+~/fabric-dev-servers/startFabric.sh
+~/fabric-dev-servers/createPeerAdminCard.sh
 
 # Deploying the business network
 composer archive create -t dir -n .
-composer runtime install --card PeerAdmin@hlfv1 --businessNetworkName blockchain-network
+composer network install --card PeerAdmin@hlfv1 --archiveFile blockchain-network@0.0.1.bna
+composer network start --networkName blockchain-network --networkVersion 0.0.1 --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card
 composer network start --card PeerAdmin@hlfv1 --networkAdmin admin --networkAdminEnrollSecret adminpw --archiveFile blockchain-network@0.0.1.bna --file blockchainadmin.card
-composer card import --file blockchainadmin.card
+composer card import --file networkadmin.card
+
+# Creating seperate user for REST server
+composer participant add -c admin@blockchain-network -d '{"$class":"org.hyperledger.composer.system.NetworkAdmin", "participantId":"restadmin"}'
+composer identity issue -c admin@blockchain-network -f restadmin.card -u restadmin -a "resource:org.hyperledger.composer.system.NetworkAdmin#restadmin"
+composer card import -f restadmin.card
+
+# Updating restadmin's business network card due to a known bug (docker container)
+cd $HOME
+sed -e 's/localhost:7051/172.17.0.1:7051/' -e 's/localhost:7053/172.17.0.1:7053/' -e 's/localhost:7054/172.17.0.1:7054/'  -e 's/localhost:7050/172.17.0.1:7050/'  < $HOME/.composer/cards/restadmin@blockchain-network/connection.json  > /tmp/connection.json && cp -p /tmp/connection.json $HOME/.composer/cards/restadmin@blockchain-network/ 
+
+# Updating blockchain admin's business network card due to a known bug (docker container)
+sed -e 's/localhost:7054/172.17.0.1:7054/' -e 's/localhost:7051/172.17.0.1:7051/'  -e 's/localhost:7050/172.17.0.1:7050/' < ~/.composer/cards/admin@blockchain-network/connection.json  > /tmp/connection.json && cp -p /tmp/connection.json ~/.composer/cards/admin@blockchain-network/ 
+
 
 echo "blockchain-network init FINISHED"
 

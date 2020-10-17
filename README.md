@@ -4,13 +4,9 @@
 1. cd ~/iVolunteerPrototype-v1/blockchain-network
 2. ./init
 
-# Due to a bug change connection profile of admin business network card
-1. cd ~/.composer/cards/admin@blockchain-network
-2. in connection.json change localhost to 172.17.0.1 (docker ip address)
-
 # Adding demo participants
 1. cd ~/iVolunteerPrototype-v1/blockchain-network
-2. ./addParticipants
+2. ./addDemoParticipants
 
 # Starting the REST server
 1. cd ~/iVolunteerPrototype-v1/rest-server

@@ -5,9 +5,6 @@ echo "addDemoParticipants STARTED"
 composer participant add --card admin@blockchain-network --data '{"$class":"at.jku.cis.Volunteer","firstName":"Philipp","lastName":"Starzer","email":"volunteer1@mail.com"}'
 composer identity issue --card admin@blockchain-network --file volunteer1.card --newUserId volunteer1 --participantId 'resource:at.jku.cis.Volunteer#volunteer1@mail.com'
 
-composer participant add --card admin@blockchain-network --data '{"$class":"at.jku.cis.Volunteer","firstName":"John","lastName":"Doe","email":"volunteer2@mail.com"}'
-composer identity issue --card admin@blockchain-network --file volunteer2.card --newUserId volunteer2 --participantId 'resource:at.jku.cis.Volunteer#volunteer2@mail.com'
-
 composer participant add --card admin@blockchain-network --data '{"$class":"at.jku.cis.Organization","orgName":"org1","email":"organization1@mail.com"}'
 composer identity issue --card admin@blockchain-network --file organization1.card --newUserId organization1 --participantId 'resource:at.jku.cis.Organization#organization1@mail.com'
 

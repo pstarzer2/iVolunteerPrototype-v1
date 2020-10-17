@@ -10,13 +10,19 @@ export class TokenInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    request = request.clone({
-      setHeaders: {'X-Access-Token': this.getAccessToken()}
-    });
-    return next.handle(request);
+    let token = this.getAccessToken();
+    if(token) {
+      request = request.clone({
+        setHeaders: {'X-Access-Token': token}
+      });
+    }
+    
+     return next.handle(request);
   }
 
   private getAccessToken(): string {
-    return this.cookieService.get('access_token').split('\.')[0].split(':')[1];
+    let token: string =  this.cookieService.get('access_token').split('\.')[0].split(':')[1];
+    console.error("token: ", token);
+    return token;
   }
 }
