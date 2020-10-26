@@ -9,7 +9,7 @@
 
   <ng-container matColumnDef="description">
     <mat-header-cell *matHeaderCellDef>{{'TASK.DESCRIPTION' | translate}}</mat-header-cell>
-    <mat-cell *matCellDef="let task">{{task.description}}</mat-cell>
+    <mat-cell style="min-width:180px;" *matCellDef="let task">{{task.description}}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="taskStatus">
@@ -19,7 +19,7 @@
 
   <ng-container matColumnDef="creator">
     <mat-header-cell *matHeaderCellDef>{{'TASK.CREATOR' | translate}}</mat-header-cell>
-    <mat-cell *matCellDef="let task"> {{task.creator.split('#')[1]}}</mat-cell>
+    <mat-cell style="min-width:180px;"  *matCellDef="let task"> {{task.creator.split('#')[1]}}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="resVolunteer">
@@ -35,7 +35,7 @@
   <ng-container matColumnDef="reserve">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>
     <mat-cell *matCellDef="let task">
-      <button mat-raised-button color="primary" (click)="reserve(task.taskId)">{{'TASK.ACTION.RESERVE' | translate}}
+      <button mat-raised-button style="margin-left: 20px" color="primary" (click)="reserve(task.taskId)">{{'TASK.ACTION.RESERVE' | translate}}
       </button>
     </mat-cell>
   </ng-container>
@@ -43,7 +43,7 @@
   <ng-container matColumnDef="assign">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>
     <mat-cell *matCellDef="let task">
-      <button mat-raised-button color="primary" (click)="assign(task.taskId)">{{'TASK.ACTION.ASSIGN' | translate}}
+      <button mat-raised-button style="margin-left: 20px" color="primary" (click)="assign(task.taskId)">{{'TASK.ACTION.ASSIGN' | translate}}
       </button>
     </mat-cell>
   </ng-container>
@@ -51,7 +51,7 @@
   <ng-container matColumnDef="finish">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>
     <mat-cell *matCellDef="let task">
-      <button mat-raised-button color="primary" (click)="finish(task.taskId)">{{'TASK.ACTION.FINISH' | translate}}
+      <button mat-raised-button style="margin-left: 20px" color="primary" (click)="finish(task.taskId)">{{'TASK.ACTION.FINISH' | translate}}
       </button>
     </mat-cell>
   </ng-container>

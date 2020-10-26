@@ -20,9 +20,9 @@
       "TITLE": "Organization",
       "TASK": {
         "LIST": {
-          "CREATED": "Available Tasks",
+          "CREATED": "Created Tasks",
           "RESERVED": "Reserved Tasks",
-          "ASSIGNED": "Assigned Tasks",
+          "ASSIGNED": "Running Tasks",
           "FINISHED": "Finished Tasks"
         },
         "CREATE": "Create Task"
